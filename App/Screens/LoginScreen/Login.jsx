@@ -25,7 +25,7 @@ export default function Login() {
     }
   }, []);
   return (
-    <View style={{ alignItems: 'center' }}>
+    <View style={{ alignItems: 'center', marginTop:30 }}>
       <Image
         source={require('./../../../assets/images/login.png')}
         style={styles.loginImage}

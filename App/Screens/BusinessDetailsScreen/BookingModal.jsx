@@ -111,6 +111,7 @@ export default function BookingModal({businessId, hideModal }) {
   );
 }
 
+
 const styles = StyleSheet.create({
   calenderContainer: {
     backgroundColor: Colors.PRIMARY_LIGHT,
