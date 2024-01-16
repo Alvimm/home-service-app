@@ -18,7 +18,7 @@ export default function ProfileScreen() {
     },
     {
       id: 2,
-      name: 'My Booking',
+      name: 'My Bookings',
       icon: 'bookmark-sharp',
       pressEvent: () => navigation.navigate('bookingScreen')
     },
