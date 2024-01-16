@@ -34,3 +34,4 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 .vscode/settings.json
+%ProgramData%/Microsoft/Windows/UUS/State/_active.uusver
