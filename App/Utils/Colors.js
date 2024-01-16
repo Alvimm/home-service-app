@@ -4,5 +4,9 @@ export default {
   PRIMARY_LIGHT: '#e9d9ff',
   WHITE: '#FFFFFF',
   GRAY: '#A0A0A0',
-  LIGHT_GRAY: '#EDEDED'
+  LIGHT_GRAY: '#EDEDED',
+  LIGHT_GREEN: '#A5F0B8',
+  LIGHT_RED: '#FCB1B3',
+  GREEN: '#45B658',
+  RED: '#C25158',
 }
