@@ -1,6 +1,7 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Colors from '../../Utils/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 export default function BusinessListItem({ business, booking }) {
@@ -8,7 +9,7 @@ export default function BusinessListItem({ business, booking }) {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.push('business-detail', { business: business  })}
+      onPress={() => navigation.navigate('business-detail', { business: business })}
     >
       <Image source={{ uri: business?.images[0]?.url }} style={styles.image} />
       <View style={styles.subContainer}>
@@ -20,14 +21,27 @@ export default function BusinessListItem({ business, booking }) {
         <Text style={{ fontFamily: 'outfit-bold', fontSize: 19 }}>
           {business?.name}
         </Text>
-        <Text
-          style={{ fontFamily: 'outfit', color: Colors.GRAY, fontSize: 16 }}
-        >
-          {' '}
+        {!booking?.id ? <Text style={{ fontFamily: 'outfit', color: Colors.GRAY, fontSize: 16 }}>
           <Ionicons name="ios-location-sharp" size={20} color={Colors.PRIMARY} />
           {business?.address}
         </Text>
-        {booking?.id ? <Text>Show Booking</Text>: null}
+          : <Text style={[
+            { padding: 5, borderRadius: 5, fontSize: 14, alignSelf: 'flex-start', fontFamily: 'outfit' },
+            booking?.bookingStatus == 'Completed'
+              ? { backgroundColor: Colors.LIGHT_GREEN, color: Colors.GREEN }
+              : booking?.bookingStatus == 'Canceled'
+                ? { backgroundColor: Colors.LIGHT_RED, color: Colors.RED }
+                : booking?.bookingStatus == 'InProgress'
+                ? { backgroundColor: Colors.LIGHT_YELLOW, color: Colors.YELLOW }
+                : { color: Colors.PRIMARY, backgroundColor: Colors.PRIMARY_LIGHT }
+          ]}>
+            {booking?.bookingStatus}
+          </Text>
+        }
+        {booking?.id ? <Text style={{ fontFamily: 'outfit', color: Colors.GRAY, fontSize: 16 }}>
+          <AntDesign name="calendar" size={24} color={Colors.PRIMARY} />
+          {booking?.date} at {booking?.time}
+        </Text> : null}
       </View>
     </TouchableOpacity>
   );
