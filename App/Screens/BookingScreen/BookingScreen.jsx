@@ -22,7 +22,7 @@ export default function BookingScreen() {
   }
   return (
     <View style={{ padding: 20 }}>
-      <Text style={{ fontFamily: 'outfit-medium', fontSize: 26 }}> My Bookings</Text>
+      <Text style={{ fontFamily: 'outfit-medium', fontSize: 26, marginTop:30 }}> My Bookings</Text>
       <View style={{ marginTop: 20 }}>
           <FlatList showsVerticalScrollIndicator={false} data={bookingList} onRefresh={() => getUserBookings()} refreshing={loading} renderItem={({ item, index }) => (
             <BusinessListItem business={item?.businessList} booking={item} />

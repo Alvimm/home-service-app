@@ -7,6 +7,7 @@ export default function PageHeading({title}) {
   return (
     <View
       style={{
+        marginTop: 30,
         display: 'flex',
         flexDirection: 'row',
         gap: 10,

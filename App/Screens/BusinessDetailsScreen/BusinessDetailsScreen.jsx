@@ -8,6 +8,7 @@ import {
   StyleSheet,
   ScrollView,
   Modal,
+  Linking,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../../Utils/Colors';
@@ -24,6 +25,10 @@ export default function BusinessDetailsScreen() {
   useEffect(() => {
     param && setBusiness(param.business);
   }, [param]);
+
+  const onMessageBtnClick = () => {
+    Linking.openURL('mailto:'+business?.email+"?subject=I am looking for your Service&body=Hi There,")
+  }
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false} style={{height:'91%'}}>
@@ -95,7 +100,7 @@ export default function BusinessDetailsScreen() {
         </View>
       </ScrollView>
       <View style={{display: 'flex', flexDirection:'row', margin: 8, gap:8}}>
-        <TouchableOpacity style={styles.messageBtn}><Text style={{textAlign:'center', fontFamily:'outfit-medium', color:Colors.PRIMARY, fontSize:18}}>Message</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.messageBtn} onPress={()=>onMessageBtnClick()}><Text style={{textAlign:'center', fontFamily:'outfit-medium', color:Colors.PRIMARY, fontSize:18}}>Message</Text></TouchableOpacity>
         <TouchableOpacity style={styles.bookingBtn}><Text style={{textAlign:'center', fontFamily:'outfit-medium', color:Colors.WHITE, fontSize:18}} onPress={()=>setShowModal(true)}>Book now</Text></TouchableOpacity>
       </View>
       <Modal animationType='slide' visible={showModal}>
@@ -121,6 +126,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 10,
     padding: 20,
+    marginTop:30
   },
   messageBtn:{
     padding:15,
