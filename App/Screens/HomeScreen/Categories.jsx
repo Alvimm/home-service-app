@@ -24,7 +24,7 @@ export default function Categories() {
         data={categories}
         numColumns={4}
         renderItem={({ item, index }) => index <= 3 &&(
-          <TouchableOpacity style={styles.container} onPress={()=> navigation.push('business-list', {category:item.name})}>
+          <TouchableOpacity style={styles.container} onPress={()=> navigation.navigate('business-list', {category:item.name})}>
             <View style={styles.iconContainer}>
               <Image
                 source={{ uri: item?.icon?.url }}
