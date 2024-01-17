@@ -31,7 +31,7 @@ export default function App() {
     'outfit-bold': require('./assets/fonts/Outfit-Bold.ttf'),
   });
   return (
-    <ClerkProvider tokenCache={tokenCache} publishableKey="pk_test_YW1hemVkLWdhdG9yLTM3LmNsZXJrLmFjY291bnRzLmRldiQ">
+    <ClerkProvider tokenCache={tokenCache} publishableKey={process.env.EXPO_PUBLIC_CLERK_KEY}>
       <View style={styles.container}>
         <SignedIn>
           <NavigationContainer>
