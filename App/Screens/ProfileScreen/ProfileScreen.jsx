@@ -26,7 +26,7 @@ export default function ProfileScreen() {
       id: 3,
       name: 'Contact Us',
       icon: 'mail',
-      pressEvent: () => Linking.openURL('mailto:alvimm.dev@gmail.com')
+      pressEvent: () => Linking.openURL(`mailto:${process.env.EXPO_PUBLIC_EMAIL}`)
     },
     {
       id: 4,

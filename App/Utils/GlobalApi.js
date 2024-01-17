@@ -1,7 +1,6 @@
 import { request, gql } from 'graphql-request';
 
-const MASTER_URL =
-  'https://api-sa-east-1.hygraph.com/v2/clr9gerpe0pqd01wd66yg2bi5/master';
+const MASTER_URL =process.env.EXPO_PUBLIC_MASTER_URL;
 
 const getSlider = async () => {
   const query = gql`
