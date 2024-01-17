@@ -21,7 +21,7 @@ export default function Header() {
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('bookingScreen')}>
+          <TouchableOpacity onPress={() => navigation.navigate('booking')}>
             <FontAwesome name="bookmark-o" size={27} color={Colors.WHITE} />
           </TouchableOpacity>
         </View>
